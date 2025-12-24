@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <!-- Soft Instrumental Christmas Music -->
+    <!-- Soft Instrumental "We Wish You a Merry Christmas" (royalty-free piano) -->
     <audio id="music" loop>
         <source src="https://www.singing-bell.com/wp-content/uploads/2013/11/We-wish-you-a-Merry-Christmas-instrumental.mp3" type="audio/mpeg">
     </audio>
@@ -80,7 +80,7 @@
         const music = document.getElementById('music');
 
         openButton.addEventListener('click', () => {
-            popup.style.display = 'flex'; // Show popup
+            popup.style.display = 'flex'; // Open popup with animation
             if (music) {
                 music.volume = 0.3;
                 music.play();
@@ -91,7 +91,7 @@
             popup.style.display = 'none';
         });
 
-        // Close when clicking outside modal content
+        // Close when clicking outside
         popup.addEventListener('click', (e) => {
             if (e.target === popup) {
                 popup.style.display = 'none';
