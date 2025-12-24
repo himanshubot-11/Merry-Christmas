@@ -1,86 +1,4 @@
-[5:17 pm, 24/12/2025] Himanshu Singh: body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    /* Normal Christmas theme colors: red to green to dark night with gold tint */
-    background: linear-gradient(to bottom, #8B0000, #006400, #000080);
-    overflow: hidden;
-    font-family: 'Dancing Script', cursive;
-    color: #FFD700; /* Gold text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.container {
-    text-align: center;
-    z-index: 10;
-}
-
-h1 {
-    font-size: 4em;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px #FF0000, 0 0 30px #00FF00;
-    color: #FF0000;
-}
-
-p {
-    font-size: 2em;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.5;
-    text-shadow: 0 0 10px #000;
-}
-
-.heart {
-    color: #FF0000;
-    animation: pulse…
-[5:21 pm, 24/12/2025] Himanshu Singh: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merry Christmas ❤️</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="lights"></div>
-
-    <!-- Random Faded Falling Emojis -->
-    <div class="falling-emoji">❄️</div>
-    <div class="falling-emoji">🎁</div>
-    <div class="falling-emoji">🎄</div>
-    <div class="falling-emoji">✨</div>
-    <div class="falling-emoji">⭐</div>
-    <div class="falling-emoji">🎅</div>
-    <div class="falling-emoji">❄️</div>
-    <div class="falling-emoji">🎁</div>
-    <div class="falling-…
-[5:38 pm, 24/12/2025] Himanshu Singh: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merry Christmas ❤️</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="lights"></div>
-
-    <!-- Random Faded Falling Emojis -->
-    <div class="falling-emoji">❄️</div>
-    <div class="falling-emoji">🎁</div>
-    <div class="falling-emoji">🎄</div>
-    <div class="falling-emoji">✨</div>
-    <div class="falling-emoji">⭐</div>
-    <div class="falling-emoji">🎅</div>
-    <div class="falling-emoji">❄️</div>
-    <div class="falling-emoji">🎁</div>
-    <div class="falling-…
-[5:39 pm, 24/12/2025] Himanshu Singh: body {
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -126,7 +44,7 @@ p {
     100% { transform: scale(1); }
 }
 
-/* Twinkling Lights */
+/* Twinkling Christmas Lights */
 .lights {
     position: absolute;
     top: 0;
@@ -143,7 +61,7 @@ p {
     50% { opacity: 1; }
 }
 
-/* Random Faded Falling Emojis */
+/* Random Faded Falling Emojis – all over the page */
 .falling-emoji {
     position: absolute;
     top: -50px;
@@ -151,7 +69,7 @@ p {
     pointer-events: none;
     user-select: none;
     animation: fall linear infinite, drift ease-in-out infinite;
-    opacity: 0.6;
+    opacity: 0.6; /* Faded effect */
     z-index: 5;
 }
 
@@ -166,7 +84,7 @@ p {
     50% { transform: translateX(150px); }
 }
 
-/* Random positions/sizes/speeds */
+/* Random positions, sizes, speeds, delays */
 .falling-emoji:nth-child(1) { left: 5%; animation-duration: 12s, 8s; animation-delay: 0s; font-size: 2.5em; }
 .falling-emoji:nth-child(2) { left: 18%; animation-duration: 15s, 10s; animation-delay: 1.5s; font-size: 1.8em; }
 .falling-emoji:nth-child(3) { left: 32%; animation-duration: 10s, 7s; animation-delay: 3s; }
@@ -188,7 +106,7 @@ p {
 .falling-emoji:nth-child(19) { left: 78%; animation-duration: 12s, 10s; animation-delay: 6s; }
 .falling-emoji:nth-child(20) { left: 90%; animation-duration: 15s, 9s; animation-delay: 4s; font-size: 2em; }
 
-/* Festive Button */
+/* Festive Surprise Button */
 .surprise {
     cursor: pointer;
     margin-top: 50px;
@@ -200,6 +118,7 @@ p {
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     transition: all 0.4s ease;
+    display: inline-block;
 }
 
 .surprise:hover {
@@ -207,7 +126,7 @@ p {
     box-shadow: 0 0 40px rgba(255, 215, 0, 1);
 }
 
-/* Hidden Modal (shows on tap) */
+/* Hidden Modal – opens on tap with animation */
 .modal {
     position: fixed;
     top: 0;
@@ -215,7 +134,7 @@ p {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: none;
+    display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
     z-index: 20;
@@ -231,6 +150,12 @@ p {
     border: 5px solid #FFD700;
     color: #FFD700;
     position: relative;
+    animation: modalPop 0.8s;
+}
+
+@keyframes modalPop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .modal-content h2 {
@@ -254,7 +179,7 @@ p {
     cursor: pointer;
 }
 
-/* CSS Confetti Burst */
+/* CSS Confetti Burst in popup */
 .confetti-container {
     position: absolute;
     top: 0;
@@ -293,49 +218,4 @@ p {
 @keyframes confettiBurst {
     0% { top: -10%; opacity: 1; transform: rotate(0deg); }
     100% { top: 110%; opacity: 0; transform: rotate(720deg); }
-/* ... (keep all your existing styles for background, lights, falling-emoji, button, etc.) */
-
-/* Hidden Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
 }
-
-.modal-content {
-    background: linear-gradient(to bottom, #FF0000, #990000);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 600px;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    border: 5px solid #FFD700;
-    color: #FFD700;
-    position: relative;
-    animation: modalPop 0.8s;
-}
-
-@keyframes modalPop {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 3em;
-    background: none;
-    border: none;
-    color: #FFD700;
-    cursor: pointer;
-}
-
-/* Confetti Burst (keep your existing) */
