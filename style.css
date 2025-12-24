@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    overflow: hidden;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+p {
+    font-size: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.heart {
+    color: #ff0000;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Falling Snow */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1.5em;
+    animation: fall linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Twinkling Lights */
+.lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: repeating-linear-gradient(90deg, transparent, transparent 50px, #ff0000 50px, #ff0000 100px, transparent 100px, transparent 150px);
+    opacity: 0.5;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* Click for Surprise */
+.surprise {
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: 1.5em;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.5s;
+    display: inline-block;
+}
+
+.surprise:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
