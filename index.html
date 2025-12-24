@@ -72,7 +72,7 @@
         <source src="https://www.singing-bell.com/wp-content/uploads/2013/11/We-wish-you-a-Merry-Christmas-instrumental.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Tap to open popup + play music, close button hides popup -->
+    <!-- Tap opens popup + plays music, close hides popup -->
     <script>
         const popup = document.getElementById('popup');
         const openButton = document.getElementById('surprise-button');
@@ -80,7 +80,7 @@
         const music = document.getElementById('music');
 
         openButton.addEventListener('click', () => {
-            popup.style.display = 'flex';
+            popup.style.display = 'flex'; // Show popup
             if (music) {
                 music.volume = 0.3;
                 music.play();
@@ -91,7 +91,7 @@
             popup.style.display = 'none';
         });
 
-        // Close when clicking outside
+        // Close when clicking outside modal content
         popup.addEventListener('click', (e) => {
             if (e.target === popup) {
                 popup.style.display = 'none';
