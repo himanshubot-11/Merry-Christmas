@@ -9,22 +9,76 @@
 </head>
 <body>
     <div class="lights"></div>
+
+    <!-- Pure CSS Falling Emojis -->
+    <div class="falling-emoji">❄️</div>
+    <div class="falling-emoji">🎁</div>
+    <div class="falling-emoji">🎄</div>
+    <div class="falling-emoji">✨</div>
+    <div class="falling-emoji">⭐</div>
+    <div class="falling-emoji">🎅</div>
+    <div class="falling-emoji">❄️</div>
+    <div class="falling-emoji">🎁</div>
+    <div class="falling-emoji">🎄</div>
+    <div class="falling-emoji">✨</div>
+    <div class="falling-emoji">⭐</div>
+    <div class="falling-emoji">🎅</div>
+    <div class="falling-emoji">❄️</div>
+    <div class="falling-emoji">🎁</div>
+    <div class="falling-emoji">🎄</div>
+    <div class="falling-emoji">✨</div>
+    <div class="falling-emoji">⭐</div>
+    <div class="falling-emoji">🎅</div>
+
     <div class="container">
         <h1>Merry Christmas, Pasandida Aurat! 🎄❤️</h1>
         <p>Kabhi kabhi bas Christmas ko tere liye thoda aur special banana chahta hoon...<br>
         Kyunki tu hi toh meri favorite everything hai – jo har din ko itna pyaara banati hai. <span class="heart">❤️</span><br>
         Yeh chhoti si surprise, sirf tere liye coded ki hai.</p>
-        <div class="surprise">Tap here for your magic 🎁</div>
+        <a href="#popup" class="surprise">Tap here for your magic 🎁</a>
     </div>
 
-    <!-- Instrumental Christmas music (soft piano) -->
+    <!-- Pure CSS Popup Modal with Message + Confetti Burst -->
+    <div id="popup" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Meri Pasandida Aurat ❤️</h2>
+            <p>Tu meri zindagi ka sabse khoobsurat tohfa hai.<br>
+            Har pal tere saath Christmas jaisa magical lagta hai.<br>
+            I love you endlessly – Merry Christmas forever together! 🎄🎁</p>
+
+            <!-- Simple CSS Confetti Burst -->
+            <div class="confetti-container">
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soft Instrumental Christmas Music ("We Wish You a Merry Christmas" piano) -->
     <audio id="music" loop>
         <source src="https://www.fesliyanstudios.com/play-mp3/6970" type="audio/mpeg">
     </audio>
 
-    <!-- Confetti library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <!-- Custom script -->
-    <script src="script.js"></script>
+    <!-- Small safe script: Play music when popup opens (tap interaction unlocks autoplay) -->
+    <script>
+        document.querySelector('.surprise').addEventListener('click', () => {
+            const music = document.getElementById('music');
+            if (music) {
+                music.volume = 0.3; // Soft volume
+                music.play();
+            }
+        });
+    </script>
 </body>
 </html>
