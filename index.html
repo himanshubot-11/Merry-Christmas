@@ -10,7 +10,7 @@
 <body>
     <div class="lights"></div>
 
-    <!-- Pure CSS Falling Emojis (more for denser effect) -->
+    <!-- Pure CSS Falling Emojis -->
     <div class="falling-emoji">❄️</div>
     <div class="falling-emoji">🎁</div>
     <div class="falling-emoji">🎄</div>
@@ -37,10 +37,10 @@
         <p>Kabhi kabhi bas Christmas ko tere liye thoda aur special banana chahta hoon...<br>
         Kyunki tu hi toh meri favorite everything hai – jo har din ko itna pyaara banati hai. <span class="heart">❤️</span><br>
         Yeh chhoti si surprise, sirf tere liye coded ki hai.</p>
-        <a href="#popup" class="surprise">Tap here for your magic 🎁</a>
+        <a href="#popup" class="surprise" id="surprise-button">Tap here for your magic 🎁</a>
     </div>
 
-    <!-- Popup Modal with Message + Confetti Burst -->
+    <!-- Popup Modal -->
     <div id="popup" class="modal">
         <div class="modal-content">
             <a href="#" class="close">&times;</a>
@@ -67,16 +67,20 @@
         </div>
     </div>
 
-    <!-- Soft Instrumental Christmas Music -->
+    <!-- Instrumental Christmas Music -->
     <audio id="music" loop>
         <source src="https://www.fesliyanstudios.com/play-mp3/6970" type="audio/mpeg">
     </audio>
 
-    <!-- Small inline script: play music when button is tapped -->
+    <!-- Play music on button tap -->
     <script>
-        document.querySelector('.surprise').addEventListener('click', () => {
+        document.getElementById('surprise-button').addEventListener('click', () => {
             const music = document.getElementById('music');
             if (music) {
                 music.volume = 0.3;
                 music.play();
             }
+        });
+    </script>
+</body>
+</html>
