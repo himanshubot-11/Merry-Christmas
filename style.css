@@ -2,10 +2,11 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(to bottom, #990000, #006400, #0a001f);
+    /* Normal Christmas theme colors: red to green to dark night with gold tint */
+    background: linear-gradient(to bottom, #8B0000, #006400, #000080);
     overflow: hidden;
     font-family: 'Dancing Script', cursive;
-    color: #ffd700;
+    color: #FFD700; /* Gold text */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +21,8 @@ body {
 h1 {
     font-size: 4em;
     margin-bottom: 20px;
-    text-shadow: 0 0 15px #ff0000, 0 0 30px #00ff00;
-    color: #ff0000;
+    text-shadow: 0 0 15px #FF0000, 0 0 30px #00FF00;
+    color: #FF0000;
 }
 
 p {
@@ -33,9 +34,9 @@ p {
 }
 
 .heart {
-    color: #ff0000;
+    color: #FF0000;
     animation: pulse 1.5s infinite;
-    text-shadow: 0 0 10px #ff69b4;
+    text-shadow: 0 0 10px #FF69B4;
 }
 
 @keyframes pulse {
@@ -44,59 +45,14 @@ p {
     100% { transform: scale(1); }
 }
 
-/* Falling Emojis – faded and all over */
-.falling-emoji {
-    position: absolute;
-    top: -50px;
-    font-size: 2em;
-    pointer-events: none;
-    user-select: none;
-    animation: fall linear infinite, drift ease-in-out infinite;
-    opacity: 0.6; /* Faded effect */
-    z-index: 5;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-    }
-}
-
-@keyframes drift {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(100px); }
-}
-
-/* Positions for full coverage */
-.falling-emoji:nth-child(1) { left: 5%; animation-duration: 12s, 8s; }
-.falling-emoji:nth-child(2) { left: 15%; animation-duration: 15s, 10s; animation-delay: 2s; }
-.falling-emoji:nth-child(3) { left: 25%; animation-duration: 10s, 7s; animation-delay: 1s; }
-.falling-emoji:nth-child(4) { left: 35%; animation-duration: 18s, 12s; animation-delay: 4s; }
-.falling-emoji:nth-child(5) { left: 45%; animation-duration: 14s, 9s; animation-delay: 3s; }
-.falling-emoji:nth-child(6) { left: 55%; animation-duration: 11s, 8s; animation-delay: 5s; }
-.falling-emoji:nth-child(7) { left: 65%; animation-duration: 16s, 11s; }
-.falling-emoji:nth-child(8) { left: 75%; animation-duration: 13s, 9s; animation-delay: 6s; }
-.falling-emoji:nth-child(9) { left: 85%; animation-duration: 17s, 10s; animation-delay: 2s; }
-.falling-emoji:nth-child(10) { left: 95%; animation-duration: 14s, 8s; animation-delay: 7s; }
-.falling-emoji:nth-child(11) { left: 10%; animation-duration: 12s, 10s; animation-delay: 1s; }
-.falling-emoji:nth-child(12) { left: 30%; animation-duration: 15s, 12s; animation-delay: 4s; }
-.falling-emoji:nth-child(13) { left: 50%; animation-duration: 10s, 7s; animation-delay: 3s; }
-.falling-emoji:nth-child(14) { left: 70%; animation-duration: 18s, 11s; animation-delay: 5s; }
-.falling-emoji:nth-child(15) { left: 90%; animation-duration: 13s, 9s; animation-delay: 8s; }
-.falling-emoji:nth-child(16) { left: 20%; animation-duration: 16s, 10s; animation-delay: 6s; }
-.falling-emoji:nth-child(17) { left: 40%; animation-duration: 11s, 8s; animation-delay: 2s; }
-.falling-emoji:nth-child(18) { left: 60%; animation-duration: 14s, 9s; }
-.falling-emoji:nth-child(19) { left: 80%; animation-duration: 15s, 12s; animation-delay: 3s; }
-.falling-emoji:nth-child(20) { left: 0%; animation-duration: 13s, 9s; animation-delay: 5s; }
-
-/* Twinkling Lights */
+/* Twinkling Christmas lights (red/green/gold) */
 .lights {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100px;
-    background: repeating-linear-gradient(90deg, transparent, transparent 40px, #ff0000 40px, #ff0000 80px, #00ff00 80px, #00ff00 120px, #ffd700 120px, #ffd700 160px, transparent 160px);
+    background: repeating-linear-gradient(90deg, transparent, transparent 40px, #FF0000 40px, #FF0000 80px, #00FF00 80px, #00FF00 120px, #FFD700 120px, #FFD700 160px, transparent 160px);
     opacity: 0.6;
     animation: twinkle 3s infinite;
 }
@@ -106,38 +62,71 @@ p {
     50% { opacity: 1; }
 }
 
+/* Random Faded Falling Emojis – all over the page */
+.falling-emoji {
+    position: absolute;
+    top: -50px;
+    font-size: 2em;
+    pointer-events: none;
+    user-select: none;
+    animation: fall linear infinite, drift ease-in-out infinite;
+    opacity: 0.6; /* Faded */
+    z-index: 5;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes drift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(150px); } /* Wider random drift */
+}
+
+/* True random positions/sizes/speeds/delays */
+.falling-emoji:nth-child(1) { left: 5%; animation-duration: 12s, 8s; animation-delay: 0s; font-size: 2.5em; }
+.falling-emoji:nth-child(2) { left: 18%; animation-duration: 15s, 10s; animation-delay: 1.5s; font-size: 1.8em; }
+.falling-emoji:nth-child(3) { left: 32%; animation-duration: 10s, 7s; animation-delay: 3s; }
+.falling-emoji:nth-child(4) { left: 45%; animation-duration: 18s, 12s; animation-delay: 2s; font-size: 2.2em; }
+.falling-emoji:nth-child(5) { left: 58%; animation-duration: 14s, 9s; animation-delay: 4.5s; }
+.falling-emoji:nth-child(6) { left: 72%; animation-duration: 11s, 8s; animation-delay: 0.5s; font-size: 2.8em; }
+.falling-emoji:nth-child(7) { left: 85%; animation-duration: 16s, 11s; animation-delay: 6s; }
+.falling-emoji:nth-child(8) { left: 10%; animation-duration: 13s, 9s; animation-delay: 2.5s; font-size: 1.9em; }
+.falling-emoji:nth-child(9) { left: 25%; animation-duration: 9s, 6s; animation-delay: 5s; }
+.falling-emoji:nth-child(10) { left: 40%; animation-duration: 17s, 10s; animation-delay: 1s; font-size: 2.4em; }
+.falling-emoji:nth-child(11) { left: 55%; animation-duration: 12s, 8s; animation-delay: 3.5s; }
+.falling-emoji:nth-child(12) { left: 70%; animation-duration: 15s, 12s; animation-delay: 4s; font-size: 2.1em; }
+.falling-emoji:nth-child(13) { left: 88%; animation-duration: 10s, 7s; animation-delay: 0s; }
+.falling-emoji:nth-child(14) { left: 95%; animation-duration: 18s, 11s; animation-delay: 5.5s; font-size: 2.6em; }
+.falling-emoji:nth-child(15) { left: 15%; animation-duration: 13s, 8s; animation-delay: 2s; }
+.falling-emoji:nth-child(16) { left: 30%; animation-duration: 16s, 10s; animation-delay: 7s; font-size: 1.7em; }
+.falling-emoji:nth-child(17) { left: 48%; animation-duration: 11s, 9s; animation-delay: 1s; }
+.falling-emoji:nth-child(18) { left: 62%; animation-duration: 14s, 8s; animation-delay: 3s; font-size: 2.3em; }
+.falling-emoji:nth-child(19) { left: 78%; animation-duration: 12s, 10s; animation-delay: 6s; }
+.falling-emoji:nth-child(20) { left: 90%; animation-duration: 15s, 9s; animation-delay: 4s; font-size: 2em; }
+.falling-emoji:nth-child(21) { left: 2%; animation-duration: 17s, 11s; animation-delay: 0s; }
+.falling-emoji:nth-child(22) { left: 98%; animation-duration: 13s, 8s; animation-delay: 5s; font-size: 2.7em; }
+
 /* Festive Button */
 .surprise {
     cursor: pointer;
     margin-top: 50px;
     font-size: 1.8em;
     padding: 25px 50px;
-    background: linear-gradient(to bottom, #ff0000, #cc0000);
-    color: #ffd700;
-    border: 3px solid #ffd700;
+    background: linear-gradient(to bottom, #FF0000, #CC0000);
+    color: #FFD700;
+    border: 3px solid #FFD700;
     border-radius: 50px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     transition: all 0.4s ease;
     display: inline-block;
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-}
-
-.surprise::before {
-    content: '🎁 ✦ 🎄';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2em;
-    opacity: 0.2;
 }
 
 .surprise:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to bottom, #ff3333, #ff0000);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1);
 }
 
-/* Modal and Confetti (keep your existing from previous version) *
+/* Modal and Confetti Burst (keep your previous if you have, or add from earlier) */
