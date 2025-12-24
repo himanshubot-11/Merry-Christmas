@@ -1,40 +1,68 @@
-// Super magical falling: snow, gifts, trees, sparkles, stars + SANTA!
+// Super dense magical falling all over: snow, gifts, trees, sparkles, stars + SANTA!
 function createFlake() {
-    const types = ['❄️', '🎁', '🎄', '✨', '⭐', '🎅']; // Added Santa!
+    const types = ['❄️', '🎁', '🎄', '✨', '⭐', '🎅']; // Santa added!
     const flake = document.createElement('div');
     flake.innerText = types[Math.floor(Math.random() * types.length)];
     flake.classList.add('snowflake');
 
     flake.style.left = Math.random() * 100 + 'vw';
 
-    const duration = Math.random() * 7 + 8;
-    flake.style.animationDuration = ${duration}s, ${duration * 3}s;
+    const duration = Math.random() * 7 + 8; // 8–15 seconds fall time
+    flake.style.animationDuration = ${duration}s, ${duration * 3}s; // Fixed syntax!
 
-    flake.style.fontSize = Math.random() * 2.5 + 1 + 'em'; // Bigger for Santa
-
-    flake.style.opacity = Math.random() * 0.5 + 0.5;
+    flake.style.fontSize = Math.random() * 2.5 + 1 + 'em'; // Bigger for Santa visibility
+    flake.style.opacity = Math.random() * 0.6 + 0.4;
 
     document.body.appendChild(flake);
 
     setTimeout(() => flake.remove(), (duration + 2) * 1000);
 }
 
-setInterval(createFlake, 100); // More frequent = denser effect all over!
+setInterval(createFlake, 80); // Very dense – full magical screen!
 
-// Music (starts after tap on mobile)
+// Music setup
 const music = document.getElementById('music');
-music.volume = 0.2;
+if (music) {
+    music.volume = 0.2;
+    music.play().catch(() => {}); // Try autoplay
+}
 
-// Epic tap effect: Confetti + Romantic popup
+// Reliable surprise on tap/click
 function surprise() {
-    // Full-screen colorful confetti bursts
-    confetti({ particleCount: 400, spread: 100, origin: { y: 0.5 }, colors: ['#ff0000', '#00ff00', '#ffffff', '#ffd700', '#ff69b4'] });
-    confetti({ particleCount: 200, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } });
-    confetti({ particleCount: 200, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } });
+    // Confetti bursts (safe check)
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 400,
+            spread: 100,
+            origin: { y: 0.5 },
+            colors: ['#ff0000', '#00ff00', '#ffffff', '#ffd700', '#ff69b4']
+        });
+        confetti({
+            particleCount: 200,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 0.6 }
+        });
+        confetti({
+            particleCount: 200,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 0.6 }
+        });
+    }
 
-    // Heartfelt love message popup
+    // Always show the romantic message
     alert("Meri Pasandida Aurat ❤️\nTu meri zindagi ka sabse khoobsurat tohfa hai.\nHar pal tere saath Christmas jaisa magical lagta hai.\nI love you endlessly – Merry Christmas forever together! 🎄🎁");
 
-    // Start music if not playing
-    music.play();
+    // Play music on interaction
+    if (music) music.play();
 }
+
+// Attach click safely after page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('.surprise');
+    if (button) {
+        button.addEventListener('click', surprise);
+        button.addEventListener('touchstart', surprise); // Better for mobile tap
+    }
+});
