@@ -31,21 +31,19 @@
     <div class="falling-emoji">🎅</div>
     <div class="falling-emoji">❄️</div>
     <div class="falling-emoji">🎁</div>
-    <div class="falling-emoji">🎄</div>
-    <div class="falling-emoji">✨</div>
 
     <div class="container">
         <h1>Merry Christmas, Pasandida Aurat! 🎄❤️</h1>
         <p>Kabhi kabhi bas Christmas ko tere liye thoda aur special banana chahta hoon...<br>
         Kyunki tu hi toh meri favorite everything hai – jo har din ko itna pyaara banati hai. <span class="heart">❤️</span><br>
         Yeh chhoti si surprise, sirf tere liye coded ki hai.</p>
-        <a href="#popup" class="surprise" id="surprise-button">Tap here for your magic 🎁</a>
+        <button class="surprise" id="surprise-button">Tap here for your magic 🎁</button>
     </div>
 
-    <!-- Popup Modal -->
+    <!-- Hidden Popup Modal -->
     <div id="popup" class="modal">
         <div class="modal-content">
-            <a href="#" class="close">&times;</a>
+            <button class="close" id="close-button">&times;</button>
             <h2>Meri Pasandida Aurat ❤️</h2>
             <p>Tu meri zindagi ka sabse khoobsurat tohfa hai.<br>
             Har pal tere saath Christmas jaisa magical lagta hai.<br>
@@ -69,18 +67,34 @@
         </div>
     </div>
 
-    <!-- Soft Instrumental "We Wish You a Merry Christmas" (public domain royalty-free) -->
+    <!-- Soft Instrumental Christmas Music -->
     <audio id="music" loop>
         <source src="https://www.singing-bell.com/wp-content/uploads/2013/11/We-wish-you-a-Merry-Christmas-instrumental.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Play music on tap -->
+    <!-- Tap to open popup + play music, close button hides popup -->
     <script>
-        document.getElementById('surprise-button').addEventListener('click', () => {
-            const music = document.getElementById('music');
+        const popup = document.getElementById('popup');
+        const openButton = document.getElementById('surprise-button');
+        const closeButton = document.getElementById('close-button');
+        const music = document.getElementById('music');
+
+        openButton.addEventListener('click', () => {
+            popup.style.display = 'flex';
             if (music) {
                 music.volume = 0.3;
                 music.play();
+            }
+        });
+
+        closeButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+
+        // Close when clicking outside
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
             }
         });
     </script>
