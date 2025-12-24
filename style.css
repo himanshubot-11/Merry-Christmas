@@ -41,23 +41,30 @@ p {
     100% { transform: scale(1); }
 }
 
-/* Falling Snow */
+/* Falling elements base */
 .snowflake {
     position: absolute;
-    top: -10px;
+    top: -50px;
     color: white;
-    font-size: 1.5em;
-    animation: fall linear infinite;
     pointer-events: none;
+    user-select: none;
+    animation: fall linear infinite, drift ease-in-out infinite;
 }
 
+/* Fall straight down */
 @keyframes fall {
     to {
         transform: translateY(100vh);
     }
 }
 
-/* Twinkling Lights */
+/* Gentle side-to-side drift */
+@keyframes drift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+}
+
+/* Twinkling lights string */
 .lights {
     position: absolute;
     top: 0;
@@ -74,16 +81,17 @@ p {
     50% { opacity: 0.8; }
 }
 
-/* Click for Surprise */
+/* Surprise button */
 .surprise {
     cursor: pointer;
     margin-top: 50px;
-    font-size: 1.5em;
+    font-size: 1.8em;
     padding: 20px 40px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    border-radius: 30px;
     transition: all 0.5s;
     display: inline-block;
+    backdrop-filter: blur(5px);
 }
 
 .surprise:hover {
