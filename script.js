@@ -1,59 +1,54 @@
-// Enhanced Falling Snow + Gifts
+// Magical full-screen falling snow + gifts + trees + sparkles
 function createFlake() {
-    const types = ['❄', '🎁', '✨', '🎄']; // Snow, gifts, sparkles, trees
+    const types = ['❄️', '🎁', '🎄', '✨', '⭐'];
     const flake = document.createElement('div');
     flake.innerText = types[Math.floor(Math.random() * types.length)];
     flake.classList.add('snowflake');
 
-    // Random horizontal position across full screen
     flake.style.left = Math.random() * 100 + 'vw';
 
-    // Random animation duration (slower/faster fall)
-    const duration = Math.random() * 5 + 8; // 8-13 seconds
-    flake.style.animationDuration = duration + 's';
+    const duration = Math.random() * 7 + 8; // 8-15s fall time
+    flake.style.animationDuration = ${duration}s, ${duration * 3}s; // fall + slow drift
 
-    // Random size
-    const size = Math.random() * 1.5 + 1; // 1-2.5em
-    flake.style.fontSize = size + 'em';
+    flake.style.fontSize = Math.random() * 2 + 1 + 'em';
 
-    // Random opacity
-    flake.style.opacity = Math.random() * 0.6 + 0.4;
-
-    // Slight side-to-side drift
-    flake.style.animation = fall ${duration}s linear infinite, drift ${duration * 2}s ease-in-out infinite;
+    flake.style.opacity = Math.random() * 0.5 + 0.5;
 
     document.body.appendChild(flake);
 
-    // Remove after falling off screen
-    setTimeout(() => flake.remove(), duration * 1000 + 1000);
+    setTimeout(() => flake.remove(), (duration + 2) * 1000);
 }
 
-// Create flakes more frequently for fuller effect
-setInterval(createFlake, 150);
+setInterval(createFlake, 120); // Dense magical effect
 
-// Optional: Extra CSS for drift (add this to your styles.css if you want more sway)
-document.head.insertAdjacentHTML('beforeend', `
-    <style>
-        @keyframes drift {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(50px); }
-        }
-    </style>
-`);
-
-// Play background music
+// Soft background music
 const music = document.getElementById('music');
-music.volume = 0.3;
-music.play().catch(() => {
-    // Autoplay blocked – will play on user click
-});
+music.volume = 0.2;
+music.play().catch(() => console.log("Play on tap"));
 
-// Surprise with confetti and message
+// Epic confetti surprise
 function surprise() {
+    // Center burst
     confetti({
-        particleCount: 300,
-        spread: 80,
-        origin: { y: 0.6 }
+        particleCount: 400,
+        spread: 100,
+        origin: { y: 0.5 },
+        colors: ['#ff0000', '#00ff00', '#ffffff', '#ffd700', '#ff69b4']
     });
-    alert("To my Pasandida Aurat: I love you more than words can say! Wishing us the warmest, most magical Christmas together forever ❤️🎅");
+    // Left side
+    confetti({
+        particleCount: 200,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 }
+    });
+    // Right side
+    confetti({
+        particleCount: 200,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 }
+    });
+
+    alert("Meri Pasandida Aurat ❤️\nTu meri zindagi ka sabse khoobsurat tohfa hai.\nHar pal tere saath Christmas jaisa magical lagta hai.\nI love you endlessly – Merry Christmas forever together! 🎄🎁");
 }
