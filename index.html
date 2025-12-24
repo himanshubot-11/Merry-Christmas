@@ -10,7 +10,7 @@
 <body>
     <div class="lights"></div>
 
-    <!-- Pure CSS Falling Emojis -->
+    <!-- Pure CSS Falling Emojis (more for denser effect) -->
     <div class="falling-emoji">❄️</div>
     <div class="falling-emoji">🎁</div>
     <div class="falling-emoji">🎄</div>
@@ -29,6 +29,8 @@
     <div class="falling-emoji">✨</div>
     <div class="falling-emoji">⭐</div>
     <div class="falling-emoji">🎅</div>
+    <div class="falling-emoji">❄️</div>
+    <div class="falling-emoji">🎁</div>
 
     <div class="container">
         <h1>Merry Christmas, Pasandida Aurat! 🎄❤️</h1>
@@ -38,7 +40,7 @@
         <a href="#popup" class="surprise">Tap here for your magic 🎁</a>
     </div>
 
-    <!-- Pure CSS Popup Modal with Message + Confetti Burst -->
+    <!-- Popup Modal with Message + Confetti Burst -->
     <div id="popup" class="modal">
         <div class="modal-content">
             <a href="#" class="close">&times;</a>
@@ -47,7 +49,7 @@
             Har pal tere saath Christmas jaisa magical lagta hai.<br>
             I love you endlessly – Merry Christmas forever together! 🎄🎁</p>
 
-            <!-- Simple CSS Confetti Burst -->
+            <!-- CSS Confetti Burst -->
             <div class="confetti-container">
                 <div class="confetti-piece"></div>
                 <div class="confetti-piece"></div>
@@ -65,20 +67,16 @@
         </div>
     </div>
 
-    <!-- Soft Instrumental Christmas Music ("We Wish You a Merry Christmas" piano) -->
+    <!-- Soft Instrumental Christmas Music -->
     <audio id="music" loop>
         <source src="https://www.fesliyanstudios.com/play-mp3/6970" type="audio/mpeg">
     </audio>
 
-    <!-- Small safe script: Play music when popup opens (tap interaction unlocks autoplay) -->
+    <!-- Small inline script: play music when button is tapped -->
     <script>
         document.querySelector('.surprise').addEventListener('click', () => {
             const music = document.getElementById('music');
             if (music) {
-                music.volume = 0.3; // Soft volume
+                music.volume = 0.3;
                 music.play();
             }
-        });
-    </script>
-</body>
-</html>
