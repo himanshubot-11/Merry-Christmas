@@ -1,4 +1,125 @@
-/* Pure CSS Modal */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    overflow: hidden;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #ff0000;
+}
+
+p {
+    font-size: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.heart {
+    color: #ff0000;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Twinkling Christmas lights */
+.lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: repeating-linear-gradient(90deg, transparent, transparent 50px, #ff0000 50px, #ff0000 100px, transparent 100px, transparent 150px);
+    opacity: 0.5;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* Pure CSS Falling Emojis */
+.falling-emoji {
+    position: absolute;
+    font-size: 2em;
+    pointer-events: none;
+    user-select: none;
+    animation: fall linear infinite, drift ease-in-out infinite;
+    opacity: 0.7;
+    z-index: 5;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes drift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+}
+
+/* Different positions/speeds for natural look */
+.falling-emoji:nth-child(1) { left: 5%; animation-duration: 12s, 8s; animation-delay: 0s; font-size: 2.2em; }
+.falling-emoji:nth-child(2) { left: 15%; animation-duration: 15s, 10s; animation-delay: 2s; }
+.falling-emoji:nth-child(3) { left: 25%; animation-duration: 10s, 7s; animation-delay: 1s; font-size: 1.8em; }
+.falling-emoji:nth-child(4) { left: 35%; animation-duration: 18s, 12s; animation-delay: 4s; }
+.falling-emoji:nth-child(5) { left: 45%; animation-duration: 14s, 9s; animation-delay: 3s; font-size: 2.5em; }
+.falling-emoji:nth-child(6) { left: 55%; animation-duration: 11s, 8s; animation-delay: 5s; }
+.falling-emoji:nth-child(7) { left: 65%; animation-duration: 16s, 11s; animation-delay: 0s; font-size: 2em; }
+.falling-emoji:nth-child(8) { left: 75%; animation-duration: 13s, 9s; animation-delay: 6s; }
+.falling-emoji:nth-child(9) { left: 85%; animation-duration: 17s, 10s; animation-delay: 2s; font-size: 1.9em; }
+.falling-emoji:nth-child(10) { left: 95%; animation-duration: 14s, 8s; animation-delay: 7s; }
+.falling-emoji:nth-child(11) { left: 10%; animation-duration: 12s, 10s; animation-delay: 1s; font-size: 2.3em; }
+.falling-emoji:nth-child(12) { left: 30%; animation-duration: 15s, 12s; animation-delay: 4s; }
+.falling-emoji:nth-child(13) { left: 50%; animation-duration: 10s, 7s; animation-delay: 3s; font-size: 2.1em; }
+.falling-emoji:nth-child(14) { left: 70%; animation-duration: 18s, 11s; animation-delay: 5s; }
+.falling-emoji:nth-child(15) { left: 90%; animation-duration: 13s, 9s; animation-delay: 8s; font-size: 2.4em; }
+.falling-emoji:nth-child(16) { left: 20%; animation-duration: 16s, 10s; animation-delay: 6s; }
+.falling-emoji:nth-child(17) { left: 40%; animation-duration: 11s, 8s; animation-delay: 2s; }
+.falling-emoji:nth-child(18) { left: 60%; animation-duration: 14s, 9s; animation-delay: 0s; font-size: 2em; }
+.falling-emoji:nth-child(19) { left: 80%; animation-duration: 15s, 12s; animation-delay: 3s; }
+.falling-emoji:nth-child(20) { left: 0%; animation-duration: 13s, 9s; animation-delay: 5s; }
+
+/* Surprise button */
+.surprise {
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: 1.8em;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    transition: all 0.5s;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+.surprise:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Modal Popup */
 .modal {
     position: fixed;
     top: 0;
@@ -21,16 +142,15 @@
 }
 
 .modal-content {
-    background: linear-gradient(to bottom, #ff0000, #cc0000);
+    background: linear-gradient(to bottom, #ff0000, #990000);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     max-width: 600px;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    position: relative;
-    animation: modalPop 0.8s;
     border: 5px solid #ffd700;
     color: #ffd700;
+    animation: modalPop 0.8s;
 }
 
 @keyframes modalPop {
@@ -41,7 +161,6 @@
 .modal-content h2 {
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px #fff;
 }
 
 .modal-content p {
@@ -56,14 +175,9 @@
     font-size: 3em;
     color: #ffd700;
     text-decoration: none;
-    transition: transform 0.3s;
 }
 
-.close:hover {
-    transform: rotate(90deg);
-}
-
-/* Simple Pure CSS Confetti Burst (triggers when modal opens) */
+/* CSS Confetti Burst */
 .confetti-container {
     position: absolute;
     top: 0;
@@ -86,25 +200,20 @@
 .confetti-piece:nth-child(odd) { background: #ff0000; }
 .confetti-piece:nth-child(even) { background: #00ff00; }
 
-.confetti-piece:nth-child(1) { left: 10%; animation-delay: 0s; transform: rotate(0deg); }
-.confetti-piece:nth-child(2) { left: 20%; animation-delay: 0.2s; transform: rotate(45deg); }
-.confetti-piece:nth-child(3) { left: 30%; animation-delay: 0.4s; transform: rotate(90deg); }
-.confetti-piece:nth-child(4) { left: 40%; animation-delay: 0.1s; transform: rotate(135deg); }
-.confetti-piece:nth-child(5) { left: 50%; animation-delay: 0.3s; transform: rotate(180deg); }
-.confetti-piece:nth-child(6) { left: 60%; animation-delay: 0.5s; transform: rotate(225deg); }
-.confetti-piece:nth-child(7) { left: 70%; animation-delay: 0.2s; transform: rotate(270deg); }
-.confetti-piece:nth-child(8) { left: 80%; animation-delay: 0.4s; transform: rotate(315deg); }
-.confetti-piece:nth-child(9) { left: 90%; animation-delay: 0.6s; transform: rotate(360deg); }
-.confetti-piece:nth-child(10) { left: 50%; animation-delay: 0s; transform: rotate(20deg); }
+.confetti-piece:nth-child(1) { left: 10%; animation-delay: 0s; }
+.confetti-piece:nth-child(2) { left: 20%; animation-delay: 0.2s; }
+.confetti-piece:nth-child(3) { left: 30%; animation-delay: 0.4s; }
+.confetti-piece:nth-child(4) { left: 40%; animation-delay: 0.1s; }
+.confetti-piece:nth-child(5) { left: 50%; animation-delay: 0.3s; }
+.confetti-piece:nth-child(6) { left: 60%; animation-delay: 0.5s; }
+.confetti-piece:nth-child(7) { left: 70%; animation-delay: 0.2s; }
+.confetti-piece:nth-child(8) { left: 80%; animation-delay: 0.4s; }
+.confetti-piece:nth-child(9) { left: 90%; animation-delay: 0.6s; }
+.confetti-piece:nth-child(10) { left: 15%; animation-delay: 0.3s; }
+.confetti-piece:nth-child(11) { left: 45%; animation-delay: 0.5s; }
+.confetti-piece:nth-child(12) { left: 75%; animation-delay: 0.1s; }
 
 @keyframes confettiBurst {
-    0% {
-        top: -10%;
-        opacity: 1;
-    }
-    100% {
-        top: 110%;
-        opacity: 0;
-        transform: translateY(100vh) rotate(720deg);
-    }
+    0% { top: -10%; opacity: 1; transform: rotate(0deg); }
+    100% { top: 110%; opacity: 0; transform: rotate(720deg); }
 }
